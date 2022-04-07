@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Infinitum registration</title>
+    <style type='text/css'>
+body{
+    background: -webkit-linear-gradient(left, #00c6ff, #3931af);
+    margin-top: 3%;
+    padding: 3%;
+}
+    
+
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 1%;
+    padding: 3%;
+    border-radius: 1.5rem;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.registered img{
+    margin-left: 15%;
+  
+    width: 70%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+.register-left img{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 50%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 5%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 5%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+    </style>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <link rel="shortcut icon" href="{% static 'images/1649242833632.png' %}" />
+</head>
+<body>
+    {% if registered %}
+    <div class="container registered" >
+        <p style="font-family: 'Beau Rivage', cursive; font-size:100px; text-align:center; color:red; text-shadow: 2px 2px #fffb00;">Tabrikalymiz. Muvafaqqiyatli ro'yxatdan o'tdingiz</p>
+        <img src="{% static 'images/1649245806488.png' %}" alt="" align="center" />
+    </div>
+    {%else %}
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img src="{% static 'images/1649242833632.png' %}" alt=""/>
+                <h4>Infinitum o'quv markazi onlayn qabulxonasi</h4><br>
+                <h5>Ro'yxatga olish boshlandi!!!</h5><br>
+                <h5>1 - Bosqich</h5>
+                <p>3 - 7 - sinf o'quvchilar uchun mo'ljallangan. Maktab fanlari ingliz tilida mustahkamlanadi</p>
+                <h3>2 - Bosqich</h3>
+                <p>8 - va undan yuqori sinf o'quvchilar uchun mo'ljallangan. IT kurslari o'rgatiladi</p>
+                <input type="checkbox" checked data-toggle="toggle" data-on="2-Bosqich. Ro'yxatdan o'tish" onchange="showhidehome()"  data-off="1-Bosqich. Ro'yxatdan o'tish" data-onstyle="info" data-offstyle="primary"><br/>
+            </div>
+            <div class="col-md-9 register-right">
+  
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
+                        <h3 class="register-heading">1 - Bosqich uchun ro'yxatdan o'tish</h3>
+                        <div class="row register-form">
+                            <form class="form-control" method="POST" enctype="multipart/form-data">       
+                                    {% csrf_token %}
+                          
+                                   {{first_form|crispy}}
+                            <button type="submit" class="btnRegister " name="first_step_btn" id="first_step_btn">Tasdiqlash  </button>
+                        </form>
+                        </div>
+                        
+                    </div>
+                    <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <h3  class="register-heading">2 - Bosqich uchun ro'yxatdan o'tish</h3>
+                        <div class="row register-form">
+                            <form class="form-control" method="POST" enctype="multipart/form-data">                   
+                                    {% csrf_token %}
+                                                 
+                                   {{second_form|crispy}}
+                            <button type="submit" class="btnRegister ">Tasdiqlash  </button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% endif %}
+    <script type="text/javascript">
+        let home = document.querySelector("#home");
+        let profile = document.querySelector("#profile");
+        let show_home = true;
+        let show_profile = true;
+        function showhidehome(){
+            if (show_home){
+                home.style.display="none";
+                profile.style.display="block";
+                show_home = false;
+                show_profile = true;
+          
+            }
+            else {
+                home.style.display="block"
+                profile.style.display="none";
+                show_home = true;
+                show_profile = false;
+ 
+            }
+        }
+
+    </script>
+</body>
+</html>
